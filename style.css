@@ -568,10 +568,10 @@ body {
   .university-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  /* .university-logo {
+  .university-logo {
     border-right: 1px dashed #ccc;
     border-bottom: 1px dashed #ccc;
-  } */
+  }
   .university-logo:nth-child(3n) {
     border-right: none;
   }
@@ -599,7 +599,7 @@ body {
     z-index: 2;
   }
 
-  .university-logo:nth-child(2n-1):not(:nth-child(n + 7))::after {
+  /* .university-logo:nth-child(2n-1):not(:nth-child(n + 7))::after {
     content: "+";
     position: absolute;
     bottom: -11px;
@@ -608,26 +608,54 @@ body {
     font-weight: normal;
     color: #d9534f;
     z-index: 2;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
   .university-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .university-logo:not(:nth-child(2n)) {
-    border-right: 1px dashed #ccc;
+  .university-logo {
+    border-right: 1px dashed #ccc !important;
+    border-bottom: 1px dashed #ccc !important;
   }
-  
+
+  .university-logo:nth-child(2n) {
+    border-right: none !important;
+  }
+  .university-logo:nth-child(n + 11) {
+    border-bottom: none !important;
+  }
+
   /* .university-logo:nth-child(-n + 6) {
     border-bottom: 1px dashed #ccc;
   } */
   /* .university-logo:last-child {
     border-bottom: none;
   } */
-  .university-logo::after,
-  .university-logo:nth-child(2n-1):not(:nth-child(n + 7))::after {
-    content: "";
+  .university-logo::after {
+    content: "" !important;
+  }
+
+  .university-logo:nth-child(2)::after,
+  .university-logo:nth-child(4)::after,
+  .university-logo:nth-child(8)::after {
+    content: "" !important;
+  }
+
+  .university-logo:nth-child(1)::after,
+  .university-logo:nth-child(3)::after,
+  .university-logo:nth-child(5)::after,
+  .university-logo:nth-child(7)::after,
+  .university-logo:nth-child(9)::after {
+    content: "+" !important;
+    position: absolute;
+    bottom: -11px;
+    right: -6px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #d9534f;
+    z-index: 2;
   }
 }
 
