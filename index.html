@@ -5,6 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LBSIM Landing Page</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* LBSIM Rankings & Accolades Section */
+      .accolades-section {
+        background-color: #1c2a5e;
+        padding: 80px 0;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      }
+      .accolades-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .accolades-grid {
+        display: grid;
+        grid-template-columns: 1fr repeat(5, 1.5fr);
+        align-items: center;
+        text-align: center;
+        gap: 40px 20px;
+        color: #f7b500;
+      }
+      .accolade-header {
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+      }
+      .accolade-region {
+        font-weight: 700;
+        font-size: 26px;
+        text-align: left;
+        line-height: 1.2;
+      }
+      .accolade-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .award-image {
+        width: 140px;
+        height: auto;
+      }
+      .accolade-rank {
+        position: absolute;
+        font-size: 38px;
+        font-weight: 700;
+        color: #fff;
+        transform: translateY(-10px);
+      }
+      .accolade-rank sup {
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 2px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .accolades-grid {
+          grid-template-columns: 1fr repeat(5, 1fr);
+          gap: 30px 15px;
+        }
+        .award-image {
+          width: 120px;
+        }
+        .accolade-rank {
+          font-size: 32px;
+        }
+        .accolade-rank sup {
+          font-size: 18px;
+        }
+        .accolade-region {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 768px) {
+        .accolades-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px 20px;
+        }
+        .accolade-header {
+          display: none;
+        }
+        .accolade-region {
+          grid-column: 1 / -1;
+          text-align: center;
+          margin-bottom: -10px;
+        }
+        .accolade-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+        }
+        .accolade-card::after {
+          content: attr(data-publication);
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 1.2;
+        }
+      }
+    </style>
   </head>
   <body>
     <section class="accreditations-section container">
@@ -326,6 +426,67 @@
               src="images/placements/12.jpg"
               alt="12"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LBSIM Rankings & Accolades -->
+    <section class="accolades-section">
+      <div class="accolades-container">
+        <div class="accolades-grid">
+          <!-- Header Row -->
+          <div class="accolade-header"></div>
+          <div class="accolade-header">THE TIMES OF INDIA</div>
+          <div class="accolade-header">FORTUNE INDIA</div>
+          <div class="accolade-header">OUTLOOK</div>
+          <div class="accolade-header">THE WEEK</div>
+          <div class="accolade-header">BUSINESS TODAY</div>
+
+          <!-- Delhi NCR Row -->
+          <div class="accolade-region">Delhi NCR</div>
+          <div class="accolade-card" data-publication="THE TIMES OF INDIA">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">3<sup>rd</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="FORTUNE INDIA">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">5<sup>th</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="OUTLOOK">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">3<sup>rd</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="THE WEEK">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">4<sup>th</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="BUSINESS TODAY">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">7<sup>th</sup></div>
+          </div>
+
+          <!-- All India Row -->
+          <div class="accolade-region">All India</div>
+          <div class="accolade-card" data-publication="THE TIMES OF INDIA">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">3<sup>rd</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="FORTUNE INDIA">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">13<sup>th</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="OUTLOOK">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">14<sup>th</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="THE WEEK">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">15<sup>th</sup></div>
+          </div>
+          <div class="accolade-card" data-publication="BUSINESS TODAY">
+            <img src="images/award.png" alt="Award" class="award-image" />
+            <div class="accolade-rank">18<sup>th</sup></div>
           </div>
         </div>
       </div>
