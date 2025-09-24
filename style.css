@@ -596,6 +596,7 @@ body {
 
 .stat-icon {
   font-size: 40px;
+  padding: 2px;
   background-color: #e0e0e0;
 }
 
