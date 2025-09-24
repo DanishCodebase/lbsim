@@ -51,9 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!alumniSlider || isTransitioning) return;
     
     isTransitioning = true;
-    const cardWidth = alumniCards[0].offsetWidth;
-    const gap = 20;
-    const translateX = -(currentIndex * (cardWidth + gap));
+    let translateX;
+    
+    if (window.innerWidth < 500) {
+      // For extra small devices, use card width for precise positioning
+      const cardWidth = alumniCards[0].offsetWidth;
+      translateX = -(currentIndex * cardWidth);
+    } else {
+      // For larger devices, use card-based calculation with gap
+      const cardWidth = alumniCards[0].offsetWidth;
+      const gap = 20;
+      translateX = -(currentIndex * (cardWidth + gap));
+    }
     
     alumniSlider.style.transform = `translateX(${translateX}px)`;
     

@@ -1105,12 +1105,28 @@ body {
 }
 
 @media (max-width: 499px) {
+  .alumni-container {
+    padding: 0 15px;
+  }
+  
+  .alumni-slider-wrapper {
+    margin: 0 -15px;
+    padding: 0 15px;
+  }
+  
   .alumni-card {
-    flex: 0 0 calc(100% - 0px); /* 1 card per slide on extra small devices */
+    flex: 0 0 calc(100vw - 30px); /* Full viewport width minus container padding */
+    max-width: calc(100vw - 30px);
+    margin: 0;
   }
   
   .alumni-grid {
-    gap: 15px;
+    gap: 0; /* Remove gap on mobile to prevent overflow */
+  }
+  
+  .alumni-slider-container {
+    overflow: hidden;
+    width: 100%;
   }
   
   .alumni-section h2 {
