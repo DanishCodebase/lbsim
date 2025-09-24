@@ -524,7 +524,7 @@ body {
   flex-wrap: wrap;
 }
 
-.stat-card {
+/* .stat-card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -564,7 +564,7 @@ body {
   font-size: 15px;
   color: #718096;
   margin: 0;
-}
+} */
 
 /* Stats Banner Section */
 /* .stats-banner {
@@ -574,21 +574,39 @@ body {
 } */
 
 .stats-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
   padding: 20px 0;
-  margin: 60px auto;
+  margin: 40px auto;
+  background-color: transparent;
 }
 
 .stat-item {
-  text-align: center;
+  background-color: white;
+  padding: 15px;
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-icon {
+  font-size: 40px;
+  background-color: #e0e0e0;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .stat-number {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: #b6081d;
   margin: 0;
@@ -722,6 +740,14 @@ body {
     border-bottom: none !important;
   }
 
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
   /* .university-logo:nth-child(-n + 6) {
     border-bottom: 1px dashed #ccc;
   } */
@@ -800,6 +826,14 @@ body {
     padding: 15px 10px;
     min-height: 50px;
   }
+
+  .university-partners h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #b6081d;
+    margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -821,6 +855,15 @@ body {
     padding: 18px 15px;
     min-height: 55px;
   }
+
+  .stats-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
 }
 
 /* Alumni Section Styles */
