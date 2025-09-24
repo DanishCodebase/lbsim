@@ -1,4 +1,159 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Alumni Auto-Slider
+  const alumniSlider = document.querySelector(".alumni-slider");
+  const alumniCards = document.querySelectorAll(".alumni-card");
+  const prevBtn = document.querySelector(".alumni-prev-btn");
+  const nextBtn = document.querySelector(".alumni-next-btn");
+  const indicatorsContainer = document.querySelector(".alumni-slider-indicators");
+
+  let currentIndex = 0;
+  let cardsPerSlide = 4; // Default for desktop
+  let totalSlides = 0;
+  let autoSlideInterval;
+  let isTransitioning = false;
+
+  // Function to get cards per slide based on screen width
+  function getCardsPerSlide() {
+    const width = window.innerWidth;
+    if (width >= 1024) return 4;
+    if (width >= 768) return 3;
+    if (width >= 500) return 2;
+    return 1;
+  }
+
+  // Function to calculate total slides
+  function calculateTotalSlides() {
+    cardsPerSlide = getCardsPerSlide();
+    totalSlides = Math.max(1, alumniCards.length - cardsPerSlide + 1);
+  }
+
+  // Function to create indicators
+  function createIndicators() {
+    indicatorsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const indicator = document.createElement('div');
+      indicator.classList.add('alumni-indicator');
+      if (i === 0) indicator.classList.add('active');
+      
+      indicator.addEventListener('click', () => {
+        if (!isTransitioning) {
+          goToSlide(i);
+          resetAutoSlide();
+        }
+      });
+      
+      indicatorsContainer.appendChild(indicator);
+    }
+  }
+
+  // Function to update slider position
+  function updateSlider() {
+    if (!alumniSlider || isTransitioning) return;
+    
+    isTransitioning = true;
+    const cardWidth = alumniCards[0].offsetWidth;
+    const gap = 20;
+    const translateX = -(currentIndex * (cardWidth + gap));
+    
+    alumniSlider.style.transform = `translateX(${translateX}px)`;
+    
+    // Update indicators
+    document.querySelectorAll('.alumni-indicator').forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Reset transition flag after animation completes
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 600);
+  }
+
+  // Function to go to specific slide
+  function goToSlide(index) {
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+    updateSlider();
+  }
+
+  // Function to go to next slide
+  function nextSlide() {
+    if (!isTransitioning) {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }
+  }
+
+  // Function to go to previous slide
+  function prevSlide() {
+    if (!isTransitioning) {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+  }
+
+  // Auto-slide functionality
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 4000); // 4 seconds
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  // Initialize slider
+  function initSlider() {
+    if (alumniCards.length === 0) return;
+    
+    calculateTotalSlides();
+    createIndicators();
+    currentIndex = 0;
+    updateSlider();
+    startAutoSlide();
+  }
+
+  // Event listeners
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+  }
+
+  // Pause auto-slide on hover
+  if (alumniSlider) {
+    alumniSlider.addEventListener('mouseenter', stopAutoSlide);
+    alumniSlider.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newCardsPerSlide = getCardsPerSlide();
+      if (newCardsPerSlide !== cardsPerSlide) {
+        calculateTotalSlides();
+        createIndicators();
+        currentIndex = Math.min(currentIndex, totalSlides - 1);
+        updateSlider();
+      }
+    }, 250);
+  });
+
+  // Initialize the slider
+  initSlider();
+
   const courseCards = document.querySelectorAll(".course-card");
 
   // Add click handlers for course cards
