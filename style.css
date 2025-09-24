@@ -749,6 +749,10 @@ body {
     font-size: 20px;
   }
 
+  .stat-icon {
+    padding: 5px;
+  }
+
   /* .university-logo:nth-child(-n + 6) {
     border-bottom: 1px dashed #ccc;
   } */
