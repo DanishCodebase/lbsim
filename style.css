@@ -1340,6 +1340,8 @@ body {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  gap: 20px;
+  padding-bottom: 15px; /* Add some space at the bottom */
 }
 
 .international-section .process-steps::-webkit-scrollbar {
@@ -1347,14 +1349,9 @@ body {
 }
 
 .international-section .step-card {
-  flex: 0 0 auto;
-  width: 25%; /* Show 4 cards at a time on desktop */
+  flex: 0 0 calc(25% - 15px);
+  width: calc(25% - 15px);
   scroll-snap-align: start;
-}
-
-.international-section .process-steps {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
 }
 
 .step-card {
@@ -1457,12 +1454,12 @@ body {
   }
 
   .international-section .process-steps {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 15px;
   }
 
   .international-section .step-card {
-    width: 33.33%;
+    flex-basis: calc(33.333% - 10px);
+    width: calc(33.333% - 10px);
   }
 }
 
@@ -1472,11 +1469,12 @@ body {
   }
 
   .international-section .process-steps {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
 
   .international-section .step-card {
-    width: 50%;
+    flex-basis: calc(50% - 7.5px);
+    width: calc(50% - 7.5px);
   }
 }
 
@@ -1486,10 +1484,39 @@ body {
   }
 
   .international-section .process-steps {
-    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
   }
 
   .international-section .step-card {
+    flex-basis: 100%;
     width: 100%;
   }
+}
+
+/* Slider Controls */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.slider-indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #d4a017;
 }
