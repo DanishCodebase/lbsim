@@ -584,7 +584,7 @@ body {
 
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
   align-items: center;
   gap: 20px;
@@ -720,6 +720,10 @@ body {
     font-weight: normal;
     color: #d9534f;
     z-index: 2;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* .university-logo:nth-child(2n-1):not(:nth-child(n + 7))::after {
@@ -875,7 +879,21 @@ body {
   }
 
   .stats-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stat-content{
+    text-align: center;
+  }
+
+  .university-partners h3 {
+    margin-bottom: 40px!important;
   }
 
   .stat-number {
