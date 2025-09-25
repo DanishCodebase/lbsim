@@ -1293,7 +1293,7 @@ body {
 }
 
 .admission-process-section .container {
-  padding: 80px 0;
+  padding: 80px 20px;
   max-width: 1350px;
   margin: 0 auto;
 }
@@ -1407,18 +1407,18 @@ body {
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .process-steps {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .process-steps {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 576px) {
   .process-steps {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
