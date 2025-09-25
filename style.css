@@ -851,6 +851,10 @@ body {
     gap: 20px;
   }
 
+  .green-border {
+    top: 86px;
+  }
+
   .course-image {
     height: 220px;
   }
@@ -868,7 +872,6 @@ body {
   .stat-number {
     font-size: 20px;
   }
-
 }
 
 /* Alumni Section Styles */
@@ -939,7 +942,8 @@ body {
   margin-top: 30px;
 }
 
-.alumni-prev-btn, .alumni-next-btn {
+.alumni-prev-btn,
+.alumni-next-btn {
   background-color: #b6081d;
   color: white;
   border: none;
@@ -955,7 +959,8 @@ body {
   box-shadow: 0 4px 12px rgba(182, 8, 29, 0.3);
 }
 
-.alumni-prev-btn:hover, .alumni-next-btn:hover {
+.alumni-prev-btn:hover,
+.alumni-next-btn:hover {
   background-color: #940618;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(182, 8, 29, 0.4);
@@ -1084,7 +1089,7 @@ body {
   .alumni-card {
     flex: 0 0 calc(33.333% - 14px); /* 3 cards per slide on medium devices */
   }
-  
+
   .alumni-section h2 {
     font-size: 40px;
   }
@@ -1094,11 +1099,11 @@ body {
   .alumni-card {
     flex: 0 0 calc(50% - 10px); /* 2 cards per slide on small devices */
   }
-  
+
   .alumni-section h2 {
     font-size: 36px;
   }
-  
+
   .alumni-container {
     padding: 0 15px;
   }
@@ -1108,40 +1113,47 @@ body {
   .alumni-container {
     padding: 0 15px;
   }
-  
+
   .alumni-slider-wrapper {
     margin: 0 -15px;
     padding: 0 15px;
   }
-  
+
   .alumni-card {
     flex: 0 0 calc(100vw - 30px); /* Full viewport width minus container padding */
     max-width: calc(100vw - 30px);
     margin: 0;
   }
-  
+
   .alumni-grid {
     gap: 0; /* Remove gap on mobile to prevent overflow */
   }
-  
+
   .alumni-slider-container {
     overflow: hidden;
     width: 100%;
   }
-  
+
   .alumni-section h2 {
     font-size: 32px;
   }
-  
-  .alumni-prev-btn, .alumni-next-btn {
+
+  .alumni-prev-btn,
+  .alumni-next-btn {
     width: 40px;
     height: 40px;
     font-size: 16px;
   }
-  
+
   .alumni-slider-controls {
     gap: 15px;
     margin-top: 25px;
+  }
+
+  .overlay-card {
+    max-width: 150px; 
+    margin-left: auto;
+    bottom: -60px;
   }
 }
 
