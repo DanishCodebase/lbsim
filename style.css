@@ -902,7 +902,11 @@ body {
   }
 
   .stat-number {
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .stat-text{
+    font-size: 14px;
   }
 }
 
