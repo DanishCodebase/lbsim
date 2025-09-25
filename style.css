@@ -896,6 +896,11 @@ body {
     margin-bottom: 40px!important;
   }
 
+  .stat-icon{
+    font-size: 20px;
+
+  }
+
   .stat-number {
     font-size: 20px;
   }
