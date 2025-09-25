@@ -69,6 +69,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: 1px solid #fff;
       }
       .award-image {
         width: 140px;
@@ -206,75 +207,25 @@
     </section>
 
     <!-- LBSIM Rankings & Accolades -->
-    <section class="accolades-section">
-      <div class="accolades-overlay"></div>
-      <div class="accolades-container">
-        <h2>LBSIM Rankings & Accolades</h2>
-        <div class="accolades-grid">
-          <!-- Header Row -->
-          <div class="accolade-header"></div>
-          <div class="accolade-header">THE TIMES OF INDIA</div>
-          <div class="accolade-header">FORTUNE INDIA</div>
-          <div class="accolade-header">OUTLOOK</div>
-          <div class="accolade-header">THE WEEK</div>
-          <div class="accolade-header">BUSINESS TODAY</div>
-
-          <!-- Delhi NCR Row -->
-          <div class="accolade-region">Delhi NCR</div>
-          <div class="accolade-card" data-publication="THE TIMES OF INDIA">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">3<sup>rd</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="FORTUNE INDIA">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">5<sup>th</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="OUTLOOK">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">3<sup>rd</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="THE WEEK">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">4<sup>th</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="BUSINESS TODAY">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">7<sup>th</sup></div>
-          </div>
-
-          <!-- All India Row -->
-          <div class="accolade-region">All India</div>
-          <div class="accolade-card" data-publication="THE TIMES OF INDIA">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">3<sup>rd</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="FORTUNE INDIA">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">13<sup>th</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="OUTLOOK">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">14<sup>th</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="THE WEEK">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">15<sup>th</sup></div>
-          </div>
-          <div class="accolade-card" data-publication="BUSINESS TODAY">
-            <img src="images/award.png" alt="Award" class="award-image" />
-            <div class="accolade-rank">18<sup>th</sup></div>
-          </div>
-        </div>
-      </div>
+    <section class="hero-section">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/rankings.webp" />
+        <source
+          media="(max-width: 767px)"
+          srcset="images/rankings-sm.webp"
+        />
+        <img
+          src="images/rankings.webp"
+          alt="LBSIM Rankings"
+          class="banner-img"
+        />
+      </picture>
     </section>
 
     <!-- Courses Section -->
     <section class="courses-section">
       <div class="courses-container container">
-        <h2 style="color: #000">
-          Two year full time PGDM Program <br />
-          at LBSIM Specialisation
-        </h2>
+        <h2 style="color: #000">Two Year PGDM Programmes at LBSIM</h2>
         <div class="courses-grid">
           <!-- Course 1: PGDM General -->
           <div class="course-card">
@@ -323,17 +274,17 @@
           </div>
         </div>
       </div>
-      <button
+      <!-- <button
         class="cta-button"
         style="margin: 0 auto; display: block; margin-top: 40px"
       >
         Apply Now
-      </button>
+      </button> -->
     </section>
 
     <!-- University Partners Section -->
     <section class="university-partners">
-      <h2 style="color: #000">Placement & Recruiters</h2>
+      <h2 style="color: #000">PGDM Placement (2023 -2025 Batch)</h2>
       <!-- Stats Banner Section -->
       <div class="stats-banner">
         <div class="stats-container container">
@@ -371,7 +322,7 @@
       <h3
         style="
           text-align: center;
-          font-size: 24px;
+          font-size: 28px;
           font-weight: bold;
           color: #000;
           margin-bottom: 20px;
@@ -433,7 +384,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/vrinda-jain.jpg"
+                    src="https://www.lbsim.ac.in/uploads/image/953imguf_sunwayuniversitylogo.jpg"
                     alt="Benjamin Evans"
                     class="alumni-image"
                   />
@@ -491,7 +442,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/anshika-singh.jpg"
+                    src="https://www.lbsim.ac.in/images/several-logo-n2.jpg"
                     alt="Benjamin Evans"
                     class="alumni-image"
                   />
@@ -549,7 +500,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/anmol.jpg"
+                    src="https://www.lbsim.ac.in/images/several-logo7.jpg"
                     alt="Benjamin Evans"
                     class="alumni-image"
                   />
@@ -604,7 +555,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/harshil-gupta.jpg"
+                    src="https://www.lbsim.ac.in/uploads/image/956imguf_PSULogo.jpg"
                     alt="Noah Anderson"
                     class="alumni-image"
                   />
@@ -661,7 +612,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/arjun.jpg"
+                    src="https://www.lbsim.ac.in/images/several-logo6.jpg"
                     alt="Emma Davis"
                     class="alumni-image"
                   />
@@ -718,7 +669,7 @@
               <div class="alumni-card">
                 <div class="alumni-image-wrapper">
                   <img
-                    src="/images/alumni/sourasish-chatterjee.jpg"
+                    src="https://www.lbsim.ac.in/images/several-logo-n1.jpg"
                     alt="Amelia Clark"
                     class="alumni-image"
                   />
@@ -783,6 +734,110 @@
         </div>
       </div>
     </section>
+
+    <!-- Admission Process Section -->
+    <section class="admission-process-section">
+      <div class="container">
+        <h2 class="section-title">Admission Process</h2>
+        <div class="process-steps">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-label">
+              <span>STEP</span>
+              <strong>01</strong>
+            </div>
+            <div class="step-icon">
+              <img
+                src="/images/process/apply-online-2026.png"
+                alt="Apply Online Icon"
+              />
+            </div>
+            <h3 class="step-title">Apply Online</h3>
+            <!-- <p class="step-description">
+              Fill out the common application form for IMT Ghaziabad, Nagpur,
+              and Hyderabad. Application fee:
+              <strong>INR 3,500 + applicable charges.</strong>
+            </p> -->
+          </div>
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-label">
+              <span>STEP</span>
+              <strong>02</strong>
+            </div>
+            <div class="step-icon">
+              <img
+                src="/images/process/complete-form-2026.png"
+                alt="Profile Detail Form Icon"
+              />
+            </div>
+            <h3 class="step-title">Complete Profile Detail Form</h3>
+            <!-- <p class="step-description">
+              Upload all required supporting documents in the Profile Detail
+              form to complete your application.
+            </p> -->
+          </div>
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-label">
+              <span>STEP</span>
+              <strong>03</strong>
+            </div>
+            <div class="step-icon">
+              <img
+                src="/images/process/entrance-2026.png"
+                alt="Submit Test Scores Icon"
+              />
+            </div>
+            <h3 class="step-title">Submit Test Scores</h3>
+            <!-- <p class="step-description">
+              Provide valid <strong>CAT / XAT / GMAT / CMAT*</strong> scores as
+              applicable.
+              <br />
+              <small>(*Note: CMAT is accepted only for IMT Nagpur).</small>
+            </p> -->
+          </div>
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-label">
+              <span>STEP</span>
+              <strong>04</strong>
+            </div>
+            <div class="step-icon">
+              <img
+                src="/images/process/interview-2026.png"
+                alt="Selection Process Icon"
+              />
+            </div>
+            <h3 class="step-title">Attend the Selection Process</h3>
+            <!-- <p class="step-description">
+              Shortlisted candidates will be invited for the offline common
+              selection process.
+            </p> -->
+          </div>
+          <!-- Step 5 -->
+          <div class="step-card">
+            <div class="step-label">
+              <span>STEP</span>
+              <strong>05</strong>
+            </div>
+            <div class="step-icon">
+              <img
+                src="/images/process/result-2026.png"
+                alt="Check Final Results Icon"
+              />
+            </div>
+            <h3 class="step-title">Check Final Results</h3>
+            <!-- <p class="step-description">
+              Admission offers will be announced after the evaluation process is
+              completed.
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eligibility Criteria Section -->
 
     <!-- Internal Immersions -->
     <!-- <section class="immersions-section">
