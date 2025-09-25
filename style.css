@@ -960,7 +960,8 @@ body {
 }
 
 .alumni-slider {
-  /* This class will be used for JavaScript targeting */
+  display: flex;
+  transition: transform 0.3s ease;
 }
 
 .alumni-card {
@@ -1333,6 +1334,25 @@ body {
 }
 
 .international-section .process-steps {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.international-section .process-steps::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.international-section .step-card {
+  flex: 0 0 auto;
+  width: 25%; /* Show 4 cards at a time on desktop */
+  scroll-snap-align: start;
+}
+
+.international-section .process-steps {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
@@ -1440,6 +1460,10 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
+
+  .international-section .step-card {
+    width: 33.33%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1450,6 +1474,10 @@ body {
   .international-section .process-steps {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .international-section .step-card {
+    width: 50%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1459,5 +1487,9 @@ body {
 
   .international-section .process-steps {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .international-section .step-card {
+    width: 100%;
   }
 }

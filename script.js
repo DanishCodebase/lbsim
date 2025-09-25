@@ -25,3 +25,39 @@ style.textContent = `
         }
       `;
 document.head.appendChild(style);
+
+// Auto-slider for International Collaborations Section
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".international-section .process-steps");
+  let scrollAmount = 0;
+  let scrollInterval;
+
+  function startSlider() {
+    scrollInterval = setInterval(() => {
+      if (slider) {
+        const cardWidth = slider.querySelector(".step-card").offsetWidth;
+        scrollAmount += cardWidth;
+
+        if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+          scrollAmount = 0;
+        }
+
+        slider.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    }, 2000); // Change slide every 2 seconds
+  }
+
+  function stopSlider() {
+    clearInterval(scrollInterval);
+  }
+
+  if (slider) {
+    startSlider();
+
+    slider.addEventListener("mouseenter", stopSlider);
+    slider.addEventListener("mouseleave", startSlider);
+  }
+});
