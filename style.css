@@ -1435,16 +1435,29 @@ body {
   .process-steps {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .international-section .process-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 }
 
 @media (max-width: 768px) {
   .process-steps {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .international-section .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 576px) {
   .process-steps {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .international-section .process-steps {
     grid-template-columns: repeat(1, 1fr);
   }
 }
