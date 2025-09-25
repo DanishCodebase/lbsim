@@ -1376,8 +1376,10 @@ body {
 }
 
 .step-icon img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  max-width: 100%;
 }
 
 .step-title {
