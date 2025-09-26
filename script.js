@@ -285,4 +285,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // Smooth scroll for Apply Now button
+    const applyBtn = document.querySelector(".fixed-apply-btn");
+    if (applyBtn) {
+        applyBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+
+        // Show/hide button on scroll
+        const heroSection = document.getElementById("hero-banner");
+        window.addEventListener("scroll", () => {
+            const heroSectionBottom = heroSection.getBoundingClientRect().bottom;
+            if (heroSectionBottom < 0) {
+                applyBtn.classList.add("show");
+            } else {
+                applyBtn.classList.remove("show");
+            }
+        });
+    }
 });

@@ -3125,8 +3125,8 @@ body {
 }
 
 .alumni-speak-section {
-  background-color: #f8f9fa!important;
-  background-image: none!important;
+  background-color: #f8f9fa !important;
+  background-image: none !important;
 }
 
 .student-speak-container {
@@ -3345,5 +3345,54 @@ body {
   }
   .video-modal-content iframe {
     height: 250px;
+  }
+}
+
+/* Fixed Apply Now Button */
+.fixed-apply-btn {
+  transform: translateY(50%) rotate(-90deg);
+  position: fixed;
+  bottom: 50%;
+  right: -63px;
+  background-color: #b6081d;
+  color: white;
+  padding: 15px 35px;
+  /* border-radius: 50px; */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fixed-apply-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fixed-apply-btn:hover {
+  background-color: #940618;
+  /* transform: translateY(-3px); */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .fixed-apply-btn {
+    padding: 12px 70px;
+    width: max-content;
+    font-size: 14px;
+    transform: translateX(50%) rotate(0deg);
+    /* width: 100%; */
+    text-align: center;
+    bottom: 1px;
+    right: 50%;
+
+  }
+
+  .fixed-apply-btn.show {
+    transform: translateX(50%) rotate(0deg);
   }
 }
