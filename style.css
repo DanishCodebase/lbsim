@@ -475,7 +475,7 @@ body {
 .eligibility-card {
   flex: 1;
   background-color: #fdfaf1;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   padding: 30px;
   border: 1px solid #f0e6d1;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -554,7 +554,7 @@ body {
 
 .course-card-new {
   background-color: #fff;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   padding: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
@@ -3111,5 +3111,222 @@ body {
 
 .indicator.active {
   background-color: #d4a017;
+}
+
+/* Student Speak Section */
+.student-speak-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.student-speak-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.student-speak-container .section-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #b6081d;
+  margin-bottom: 50px;
+}
+
+.student-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -10px;
+}
+
+.student-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.student-video-card {
+  flex: 0 0 25%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-thumbnail-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-thumbnail-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.video-thumbnail-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.play-button::after {
+  content: '▶';
+  font-size: 24px;
+  color: white;
+  margin-left: 4px;
+}
+
+.student-video-card:hover .play-button {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: #b6081d;
+    color: white;
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.slider-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slider-indicators .indicator.active {
+  background-color: #b6081d;
+}
+
+/* Video Modal Styles */
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  animation: fadeIn 0.3s;
+}
+
+.video-modal-content {
+  position: relative;
+  margin: 5% auto;
+  padding: 0;
+  width: 80%;
+  max-width: 900px;
+  animation: slideIn 0.3s;
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+
+/* Responsive Breakpoints for Student Speak Slider */
+@media (max-width: 1023px) {
+  .student-video-card {
+    flex: 0 0 33.333%;
+  }
+  .video-modal-content iframe {
+    height: 450px;
+  }
+}
+
+@media (max-width: 767px) {
+  .student-video-card {
+    flex: 0 0 50%;
+  }
+  .student-speak-container .section-title {
+    font-size: 32px;
+  }
+   .video-modal-content {
+    width: 90%;
+  }
+  .video-modal-content iframe {
+    height: 350px;
+  }
+}
+
+@media (max-width: 499px) {
+  .student-video-card {
+    flex: 0 0 100%;
+  }
+   .video-modal-content iframe {
+    height: 250px;
+  }
 }
 
