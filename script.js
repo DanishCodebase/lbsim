@@ -137,142 +137,152 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector(".student-slider");
-    const indicatorsContainer = document.querySelector(".student-speak-section .slider-indicators");
-    const prevBtn = document.querySelector(".student-speak-section .prev-btn");
-    const nextBtn = document.querySelector(".student-speak-section .next-btn");
     const modal = document.getElementById("video-modal");
     const modalIframe = document.getElementById("youtube-video-iframe");
     const closeModalBtn = document.querySelector(".close-modal-btn");
 
-    if (!slider) return;
+    function setupVideoSlider(containerSelector) {
+        const sliderContainer = document.querySelector(containerSelector);
+        if (!sliderContainer) return;
 
-    const slides = document.querySelectorAll(".student-video-card");
-    let currentIndex = 0;
-    let itemsPerSlide = getItemsPerSlide();
-    let totalPositions = slides.length > itemsPerSlide ? slides.length - itemsPerSlide + 1 : 1;
-    let autoSlideInterval;
+        const slider = sliderContainer.querySelector(".student-slider");
+        const indicatorsContainer = sliderContainer.querySelector(".slider-indicators");
+        const prevBtn = sliderContainer.querySelector(".prev-btn");
+        const nextBtn = sliderContainer.querySelector(".next-btn");
 
-    function getItemsPerSlide() {
-        if (window.innerWidth >= 1024) return 4;
-        if (window.innerWidth >= 768) return 3;
-        if (window.innerWidth >= 500) return 2;
-        return 1;
-    }
-    
-    function updateSlider() {
-        itemsPerSlide = getItemsPerSlide();
-        totalPositions = slides.length > itemsPerSlide ? slides.length - itemsPerSlide + 1 : 1;
-        
-        slides.forEach(slide => {
-            slide.style.flex = `0 0 ${100 / itemsPerSlide}%`;
-        });
-        
-        if (currentIndex >= totalPositions) {
-            currentIndex = totalPositions - 1;
+        if (!slider) return;
+
+        const slides = slider.querySelectorAll(".student-video-card");
+        let currentIndex = 0;
+        let itemsPerSlide = getItemsPerSlide();
+        let totalPositions = slides.length > itemsPerSlide ? slides.length - itemsPerSlide + 1 : 1;
+        let autoSlideInterval;
+
+        function getItemsPerSlide() {
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 3;
+            if (window.innerWidth >= 500) return 2;
+            return 1;
         }
-        
-        goToSlide(currentIndex);
-    }
 
-    function createIndicators() {
-        indicatorsContainer.innerHTML = "";
-        for (let i = 0; i < totalPositions; i++) {
-            const indicator = document.createElement("div");
-            indicator.classList.add("indicator");
-            indicator.addEventListener("click", () => {
-                goToSlide(i);
+        function updateSlider() {
+            itemsPerSlide = getItemsPerSlide();
+            totalPositions = slides.length > itemsPerSlide ? slides.length - itemsPerSlide + 1 : 1;
+
+            slides.forEach(slide => {
+                slide.style.flex = `0 0 ${100 / itemsPerSlide}%`;
             });
-            indicatorsContainer.appendChild(indicator);
+
+            if (currentIndex >= totalPositions) {
+                currentIndex = totalPositions - 1;
+            }
+
+            goToSlide(currentIndex);
         }
-        updateIndicators();
-    }
-    
-    function updateIndicators() {
-        const indicators = indicatorsContainer.querySelectorAll(".indicator");
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle("active", index === currentIndex);
+
+        function createIndicators() {
+            indicatorsContainer.innerHTML = "";
+            for (let i = 0; i < totalPositions; i++) {
+                const indicator = document.createElement("div");
+                indicator.classList.add("indicator");
+                indicator.addEventListener("click", () => {
+                    goToSlide(i);
+                });
+                indicatorsContainer.appendChild(indicator);
+            }
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            const indicators = indicatorsContainer.querySelectorAll(".indicator");
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle("active", index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const singleSlideWidthPercentage = 100 / itemsPerSlide;
+            slider.style.transform = `translateX(-${currentIndex * singleSlideWidthPercentage}%)`;
+            updateIndicators();
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(() => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= totalPositions) {
+                    nextIndex = 0;
+                }
+                goToSlide(nextIndex);
+            }, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        prevBtn.addEventListener("click", () => {
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = totalPositions - 1;
+            }
+            goToSlide(prevIndex);
         });
-    }
 
-    function goToSlide(index) {
-        currentIndex = index;
-        const singleSlideWidthPercentage = 100 / itemsPerSlide;
-        slider.style.transform = `translateX(-${currentIndex * singleSlideWidthPercentage}%)`;
-        updateIndicators();
-    }
-
-    function startAutoSlide() {
-        stopAutoSlide();
-        autoSlideInterval = setInterval(() => {
+        nextBtn.addEventListener("click", () => {
             let nextIndex = currentIndex + 1;
             if (nextIndex >= totalPositions) {
                 nextIndex = 0;
             }
             goToSlide(nextIndex);
-        }, 5000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-    
-    prevBtn.addEventListener("click", () => {
-        let prevIndex = currentIndex - 1;
-        if (prevIndex < 0) {
-            prevIndex = totalPositions - 1;
-        }
-        goToSlide(prevIndex);
-    });
-
-    nextBtn.addEventListener("click", () => {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex >= totalPositions) {
-            nextIndex = 0;
-        }
-        goToSlide(nextIndex);
-    });
-    
-    slider.addEventListener("mouseenter", stopAutoSlide);
-    slider.addEventListener("mouseleave", startAutoSlide);
-
-    // Modal logic
-    slides.forEach(slide => {
-        slide.addEventListener("click", () => {
-            const videoId = slide.dataset.videoId;
-            modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            modal.style.display = "block";
         });
-    });
 
-    closeModalBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-        modalIframe.src = "";
-    });
+        slider.addEventListener("mouseenter", stopAutoSlide);
+        slider.addEventListener("mouseleave", startAutoSlide);
 
-    window.addEventListener("click", (event) => {
-        if (event.target == modal) {
+        slides.forEach(slide => {
+            slide.addEventListener("click", () => {
+                const videoId = slide.dataset.videoId;
+                modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modal.style.display = "block";
+            });
+        });
+        
+        window.addEventListener("resize", () => {
+            let timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const newItemsPerSlide = getItemsPerSlide();
+                if (itemsPerSlide !== newItemsPerSlide) {
+                    currentIndex = 0;
+                    updateSlider();
+                    createIndicators();
+                }
+            }, 200);
+        });
+
+        updateSlider();
+        createIndicators();
+        startAutoSlide();
+    }
+
+    // Initialize sliders
+    setupVideoSlider(".student-speak-section:not(.alumni-speak-section)");
+    setupVideoSlider(".alumni-speak-section");
+
+    // General modal closing logic
+    if (modal) {
+        closeModalBtn.addEventListener("click", () => {
             modal.style.display = "none";
             modalIframe.src = "";
-        }
-    });
+        });
 
-    window.addEventListener("resize", () => {
-        // Debounce resize event
-        let timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            const newItemsPerSlide = getItemsPerSlide();
-            if (itemsPerSlide !== newItemsPerSlide) {
-                currentIndex = 0; // Reset to first slide on breakpoint change
-                updateSlider();
-                createIndicators();
+        window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                modalIframe.src = "";
             }
-        }, 200);
-    });
-    
-    // Initial setup
-    updateSlider();
-    createIndicators();
-    startAutoSlide();
+        });
+    }
 });
