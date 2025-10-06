@@ -2513,9 +2513,9 @@ body {
     font-size: 24px;
   }
 
-  /* .stat-text {
+  .stat-text {
     font-size: 14px;
-  } */
+  }
 }
 
 /* Alumni Section Styles */
@@ -3271,11 +3271,13 @@ body {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
   animation: fadeIn 0.3s;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-modal-content {
   position: relative;
-  margin: 5% auto;
+  margin: 0;
   padding: 0;
   width: 80%;
   max-width: 900px;
@@ -3374,6 +3376,24 @@ body {
   transition: all 0.3s ease;
   opacity: 0;
   visibility: hidden;
+  /* position: relative; */
+  overflow: hidden;
+}
+
+.fixed-apply-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: flash 3s infinite 1s;
 }
 
 .fixed-apply-btn.show {
@@ -3402,5 +3422,14 @@ body {
 
   .fixed-apply-btn.show {
     transform: translateX(50%) rotate(0deg);
+  }
+}
+
+@keyframes flash {
+  0% {
+    transform: translateX(-100%) skewX(-30deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-30deg);
   }
 }

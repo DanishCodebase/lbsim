@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             slide.addEventListener("click", () => {
                 const videoId = slide.dataset.videoId;
                 modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                modal.style.display = "block";
+                modal.style.display = "flex";
             });
         });
         
