@@ -3362,8 +3362,8 @@ body {
   position: fixed;
   bottom: 50%;
   right: -65.5px;
-  background-color: #b6081d;
-  color: white;
+  background-color: #f5c643;
+  color: black;
   padding: 15px 35px;
   /* border-radius: 50px; */
   text-decoration: none;
@@ -3382,7 +3382,7 @@ body {
 }
 
 .fixed-apply-btn:hover {
-  background-color: #940618;
+  background-color: #ffcf4a;
   /* transform: translateY(-3px); */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
