@@ -712,8 +712,12 @@ body {
 }
 
 .stat-icon {
-  font-size: 40px;
-  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 54px;
+  /* padding: 2px; */
   background-color: #e0e0e0;
 }
 
@@ -2509,9 +2513,9 @@ body {
     font-size: 24px;
   }
 
-  .stat-text {
+  /* .stat-text {
     font-size: 14px;
-  }
+  } */
 }
 
 /* Alumni Section Styles */
@@ -3351,9 +3355,13 @@ body {
 /* Fixed Apply Now Button */
 .fixed-apply-btn {
   transform: translateY(50%) rotate(-90deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   position: fixed;
   bottom: 50%;
-  right: -63px;
+  right: -65.5px;
   background-color: #b6081d;
   color: white;
   padding: 15px 35px;
